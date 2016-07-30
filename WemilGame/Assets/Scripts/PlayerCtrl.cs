@@ -7,7 +7,7 @@ public class PlayerCtrl : MonoBehaviour {
 	public float jumpForce = 600.0f;
 	
 	private Vector2 moveDir;
-	//private Animator anim;	// This anim object is used to reference the object's animator, which is unused for now
+	private Animator anim;
 	private Rigidbody2D rb;
 
 	private Vector3 minScreenBounds;
@@ -16,7 +16,7 @@ public class PlayerCtrl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		moveDir = Vector2.zero;
-		//anim = GetComponent<Animator> ();
+		anim = GetComponent<Animator> ();
 		rb = GetComponent<Rigidbody2D> ();
 	}
 	
@@ -29,7 +29,7 @@ public class PlayerCtrl : MonoBehaviour {
 		float moveX = Input.GetAxisRaw ("Horizontal");
 		moveDir = new Vector2 (moveX, 0);
 		moveDir.Normalize ();
-		//anim.SetFloat("Speed", Mathf.Abs(moveX) );
+		anim.SetFloat("Speed", Mathf.Abs(moveX) );
 		
 		// walk
 		// transform holds info like position, rotation, scale
@@ -58,7 +58,7 @@ public class PlayerCtrl : MonoBehaviour {
 		if (rb.velocity.y >= -0.01f && rb.velocity.y <= 0.01f && Input.GetKeyDown(KeyCode.Space)) {
 			rb.AddForce(new Vector2(0, jumpForce));
 		}
-		//anim.SetFloat("vSpeed", rb.velocity.y);
+		anim.SetFloat("vSpeed", rb.velocity.y);
 	}
 
 	// Colliders that are attached to objects can be set as triggers, which don't act like walls. They can be passed through
