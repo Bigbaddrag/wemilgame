@@ -28,7 +28,7 @@ public class sign1Ctrl : MonoBehaviour {
         if (Vector3.Distance(transform.position, plyrTarget.position) > 2.0f && touched)
         {
             //c.enabled = false;    // this makes the canvas (text bubble) disappear
-            t.text = "Thank you.";
+            t.text = "Thank you...";
             c.GetComponentInChildren<CanvasRenderer>().SetTexture(img);
         }
 	}
